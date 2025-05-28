@@ -1,19 +1,24 @@
 import "./App.css";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import { HomePage } from "./pages/HomePage.jsx";
-import { Cliente } from "./pages/Cliente.jsx";
+import { Navbar } from "./components/Navbar";
+import { PublicRoutes } from "./Routes/PublicRoutes";
 
+/**
+ * App - Componente principal de la aplicación
+ * 
+ * Configura el enrutamiento y la estructura general de la aplicación.
+ * Proporciona un layout con navegación y contenido principal.
+ */
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Rutas publicas  */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cliente/:nombre" element={<Cliente />} />
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <PublicRoutes />
+      </div>
+    </BrowserRouter>
   );
 }
 
